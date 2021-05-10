@@ -1,0 +1,42 @@
+diff --git a/linked_list.py b/linked_list.py
+index 69cacc5..4e09aa9 100644
+--- a/linked_list.py
++++ b/linked_list.py
+@@ -28,6 +28,16 @@ class LinkedList:
+             return
+         print "The top of the stack is: " + str(self.head.data)
+ 
++    def print_stack(self):
++        if self.head is None:
++            print "The Stack is empty"
++            return
++        print "Stack items:\nHEAD ->",
++        node = self.head
++        while(node != None):
++            print node.data,
++            node = node.next
++        print ""
+ 
+ stack = LinkedList()
+ continue_loop = True
+@@ -36,8 +46,9 @@ while continue_loop:
+     print "1. Push"
+     print "2. Pop"
+     print "3. Peek"
+-    print "4. Exit"
+-    choice = input("\nEnter your choice (1 - 4): ")
++    print "4. Print"
++    print "5. Exit"
++    choice = input("\nEnter your choice (1 - 5): ")
+     if choice == 1:
+         data = input("Enter the number to be pushed inside the stack: ")
+         stack.push(data)
+@@ -46,6 +57,8 @@ while continue_loop:
+     elif choice == 3:
+         stack.peek()
+     elif choice == 4:
++        stack.print_stack()
++    elif choice == 5:
+         continue_loop = False
+     else:
+         print "Invalid choice"
